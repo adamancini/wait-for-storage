@@ -23,7 +23,6 @@ import (
 	"os"
 	"time"
 
-	// "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
@@ -44,7 +43,6 @@ func main() {
 		sc, err := clientset.StorageV1().StorageClasses().List(context.TODO(), metav1.ListOptions{})
 		if err != nil {
 			fmt.Printf("Unable to list Storage classes: %v", err.Error())
-			// panic(err.Error())
 		} else {
 			fmt.Printf("Found  %d storage classes: \n", len(sc.Items))
 			for _, storageClass := range sc.Items {
