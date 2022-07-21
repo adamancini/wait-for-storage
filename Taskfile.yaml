@@ -2,7 +2,7 @@ version: 3
 tasks:
   build-bin:
     cmds: 
-      - GOOS=linux GOARCH=amd64 go build -o ./app .
+      - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./app .
   build-img:
     cmds: 
       - docker build --platform linux/amd64 -t ttl.sh/wait-for-storage:1d .
