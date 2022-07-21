@@ -1,0 +1,19 @@
+version: 3
+tasks:
+  build-bin:
+    cmds: 
+      - GOOS=linux GOARCH=amd64 go build -o ./app .
+  build-img:
+    cmds: 
+      - docker build --platform linux/amd64 -t ttl.sh/wait-for-storage:1d .
+  build:
+    deps: 
+      - build-bin
+      - build-img
+  ttl:
+    deps:
+      - build
+    cmds: 
+      - docker push ttl.sh/wait-for-storage:1d
+
+
