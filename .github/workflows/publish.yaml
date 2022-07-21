@@ -37,7 +37,7 @@ jobs:
       
       - name: Build binary
         run: |
-          task build
+          task build-bin
 
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
